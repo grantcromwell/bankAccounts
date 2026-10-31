@@ -16,6 +16,14 @@ class BankAccount {
 public:
     std::string name;
     double balance;
+
+    void withdraw(double amount) {
+        balance = balance - amount;
+    }
+
+    void deposit(double amount) {
+        balance = balance + amount;
+    }
 };
 
 int main() {
@@ -33,8 +41,8 @@ int main() {
     dots();
     std::cout << "Mary has sent $500 to " << account1.name << "." << std::endl;
     dots();
-    account2.balance = account2.balance - 500;
-    account1.balance = account1.balance + 500;
+    account2.withdraw(500);
+    account1.deposit(500);
     std::cout << account1.name << " has received $500." << std::endl;
     std::cout << account1.name << " has " << std::fixed << std::setprecision(2) << account1.balance << " dollars." << std::endl;
     std::cout << account2.name << " has " << std::fixed << std::setprecision(2) << account2.balance << " dollars." << std::endl;
